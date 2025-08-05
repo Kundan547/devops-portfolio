@@ -11,28 +11,28 @@ const Projects = () => {
           title: "SpringBoot BankApp on EKS (GitOps)",
           description: "Containerized Spring Boot banking app deployed on AWS EKS using Helm & ArgoCD.",
           tags: ["Spring Boot", "MySQL", "Docker", "EKS", "ArgoCD"],
-          github: "https://github.com/Kundan547/springboot-bankapp",
+          github: "https://github.com/Kundan547/Springboot-BankApp.git",
           outcomes: "Implemented GitOps-driven deployments ensuring automated rollouts and version control."
         },
         {
           title: "Three-Tier App with Terraform & Helm",
           description: "Full-stack app deployed on EKS with infrastructure provisioned via Terraform.",
           tags: ["Node.js", "React.js", "MongoDB", "Terraform", "EKS", "Helm"],
-          github: "https://github.com/Kundan547/three-tier-app",
+          github: "https://github.com/Kundan547/3-tier-app-Deployment.git",
           outcomes: "Created modular Terraform infrastructure; enabled reusable Helm charts for deployments."
         },
         {
           title: "SportsDev with Kustomize Overlays",
           description: "Managed env-specific deployments to multiple EKS clusters using Kustomize overlays.",
           tags: ["Kustomize", "EKS", "Overlays"],
-          github: "https://github.com/Kundan547/sportsdev",
+          github: "https://github.com/Kundan547/sports-dev.git",
           outcomes: "Simplified multi-environment deployments and improved cluster management efficiency."
         },
         {
           title: "E-Commerce App with ArgoCD",
           description: "CI/CD pipeline deploying Node.js & React.js app to EKS via ArgoCD.",
           tags: ["Node.js", "React.js", "EKS", "ArgoCD", "GitHub Actions"],
-          github: "https://github.com/Kundan547/ecommerce-argo",
+          github: "https://github.com/Kundan547/spring-boot-k8s-2.git",
           outcomes: "Implemented GitOps pipeline for consistent, automated production deployments."
         }
       ]

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/DevOps_portfolio/static/css/main.ceed3aaf.css",
-    "main.js": "/DevOps_portfolio/static/js/main.c5c0dd97.js",
-    "static/js/453.c2e8e339.chunk.js": "/DevOps_portfolio/static/js/453.c2e8e339.chunk.js",
-    "static/media/profile-photo.jpg": "/DevOps_portfolio/static/media/profile-photo.2cfd44172f462152257a.jpg",
-    "index.html": "/DevOps_portfolio/index.html",
-    "main.ceed3aaf.css.map": "/DevOps_portfolio/static/css/main.ceed3aaf.css.map",
-    "main.c5c0dd97.js.map": "/DevOps_portfolio/static/js/main.c5c0dd97.js.map",
-    "453.c2e8e339.chunk.js.map": "/DevOps_portfolio/static/js/453.c2e8e339.chunk.js.map"
+    "main.css": "/devops-portfolio/static/css/main.623e320e.css",
+    "main.js": "/devops-portfolio/static/js/main.eefe8b96.js",
+    "static/js/453.d25e12da.chunk.js": "/devops-portfolio/static/js/453.d25e12da.chunk.js",
+    "static/media/profile-photo.jpg": "/devops-portfolio/static/media/profile-photo.dd5cdf2b96e412c4d8c2.jpg",
+    "index.html": "/devops-portfolio/index.html",
+    "main.623e320e.css.map": "/devops-portfolio/static/css/main.623e320e.css.map",
+    "main.eefe8b96.js.map": "/devops-portfolio/static/js/main.eefe8b96.js.map",
+    "453.d25e12da.chunk.js.map": "/devops-portfolio/static/js/453.d25e12da.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ceed3aaf.css",
-    "static/js/main.c5c0dd97.js"
+    "static/css/main.623e320e.css",
+    "static/js/main.eefe8b96.js"
   ]
 }
