@@ -38,7 +38,7 @@ const Resume = () => {
         <Col lg={8} className="mx-auto text-center">
           <Button 
             href={`https://drive.google.com/uc?export=download&id=${googleDriveFileId}`} 
-            download="Apurva_Gargote_Resume.pdf"
+            download="KundanVyas_Resume.pdf"
             variant="primary" 
             size="lg" 
             className="resume-download-btn"
