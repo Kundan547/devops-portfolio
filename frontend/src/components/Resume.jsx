@@ -35,7 +35,7 @@ const Resume = () => {
       <Row className="mb-4">
         <Col lg={8} className="mx-auto text-center">
           <Button 
-            href="/KundanVyas_Resume.pdf" 
+            href={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`} 
             download="KundanVyas_Resume.pdf"
             variant="primary" 
             size="lg" 
@@ -49,7 +49,7 @@ const Resume = () => {
       <Row>
         <Col lg={9} className="mx-auto">
           <PDFFrame
-            src="/KundanVyas_Resume.pdf"
+            src={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`}
             title="Kundan Vyas Resume"
           />
         </Col>
