@@ -15,10 +15,18 @@ const ResumeWrapper = styled.div`
 `;
 
 const ResumeFrame = styled.iframe`
-  width: 80%;
+  width: 60%;                /* A4-like width */
   height: 90vh;
   border: none;
-  box-shadow: 0 4px 10px rgba(25,25,25,25.1);
+  background: white;         /* Remove black background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: auto;
+  border-radius: 8px;        /* Optional rounded corners */
+  
+  @media (max-width: 768px) {
+    width: 95%;              /* Full width on mobile */
+    height: 80vh;
+  }
 `;
 
 const Resume = () => {
