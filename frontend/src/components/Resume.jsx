@@ -9,15 +9,20 @@ const ResumeContainer = styled(Container)`
   text-align: center;
 `;
 
+const ResumeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const ResumeFrame = styled.iframe`
-  width: 100%;
-  height: 100vh;
+  width: 80%;
+  height: 90vh;
   border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 `;
 
 const Resume = () => {
-  // Hide PDF viewer toolbar, sidebar, and scrollbars
-  const resumePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0`;
+  const resumePdfPath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0`;
 
   return (
     <ResumeContainer fluid>
@@ -34,11 +39,9 @@ const Resume = () => {
         </Col>
       </Row>
 
-      <Row>
-        <Col>
-          <ResumeFrame src={resumePath} title="Kundan Vyas Resume" />
-        </Col>
-      </Row>
+      <ResumeWrapper>
+        <ResumeFrame src={resumePdfPath} title="Kundan Vyas Resume" />
+      </ResumeWrapper>
     </ResumeContainer>
   );
 };
