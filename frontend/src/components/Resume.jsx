@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaDownload } from 'react-icons/fa';
 import styled from 'styled-components';
+import resumePDF from './assets/KundanVyas Resume.pdf';  // 👈 Import PDF
 
 const ResumeContainer = styled(Container)`
   min-height: 100vh;
@@ -35,7 +36,7 @@ const Resume = () => {
       <Row className="mb-4">
         <Col lg={8} className="mx-auto text-center">
           <Button 
-            href={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`} 
+            href={resumePDF}   // 👈 Use imported path
             download="KundanVyas_Resume.pdf"
             variant="primary" 
             size="lg" 
@@ -49,7 +50,7 @@ const Resume = () => {
       <Row>
         <Col lg={9} className="mx-auto">
           <PDFFrame
-            src={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`}
+            src={resumePDF}   // 👈 Use imported path
             title="Kundan Vyas Resume"
           />
         </Col>
