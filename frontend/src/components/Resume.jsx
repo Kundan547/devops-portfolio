@@ -9,18 +9,25 @@ const ResumeContainer = styled(Container)`
   text-align: center;
 `;
 
+const ResumeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ResumeImage = styled.img`
-  width: 100%;
-  max-width: 900px;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  max-height: calc(100vh - 200px); /* Keeps it A4 size */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   border: 1px solid #ddd;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 `;
 
 const Resume = () => {
   const resumePdfPath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`;
   const resumeImagePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.png`; 
-  // Make sure to add the PNG export of your resume to public folder
+  // Make sure PNG version of resume exists in /public
 
   return (
     <ResumeContainer fluid>
@@ -37,11 +44,9 @@ const Resume = () => {
         </Col>
       </Row>
 
-      <Row>
-        <Col>
-          <ResumeImage src={resumeImagePath} alt="Kundan Vyas Resume" />
-        </Col>
-      </Row>
+      <ResumeWrapper>
+        <ResumeImage src={resumeImagePath} alt="Kundan Vyas Resume" />
+      </ResumeWrapper>
     </ResumeContainer>
   );
 };
