@@ -9,22 +9,25 @@ const ResumeContainer = styled(Container)`
   text-align: center;
 `;
 
-const ResumeFrame = styled.iframe`
+const ResumeImage = styled.img`
   width: 100%;
-  height: 100vh;
-  border: none;
+  max-width: 900px;
+  height: auto;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 `;
 
 const Resume = () => {
-  // Hide toolbar, sidebar, and scrollbars from PDF viewer
-  const resumePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0`;
+  const resumePdfPath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`;
+  const resumeImagePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.png`; 
+  // Make sure to add the PNG export of your resume to public folder
 
   return (
     <ResumeContainer fluid>
       <Row className="mb-3">
         <Col>
           <Button
-            href={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`}
+            href={resumePdfPath}
             download="KundanVyas_Resume.pdf"
             variant="primary"
             size="lg"
@@ -36,7 +39,7 @@ const Resume = () => {
 
       <Row>
         <Col>
-          <ResumeFrame src={resumePath} title="Kundan Vyas Resume" />
+          <ResumeImage src={resumeImagePath} alt="Kundan Vyas Resume" />
         </Col>
       </Row>
     </ResumeContainer>
