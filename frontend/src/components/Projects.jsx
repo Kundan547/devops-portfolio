@@ -44,21 +44,21 @@ const Projects = () => {
           title: "Zomato Clone (Jenkins CI/CD + Security)",
           description: "Jenkins pipeline with SonarQube, Trivy & OWASP scanning for Node.js app.",
           tags: ["Jenkins", "Docker", "SonarQube", "Trivy", "OWASP", "MySQL"],
-          github: "https://github.com/Kundan547/zomato-clone",
+          github: "https://github.com/Kundan547/Zomato-Clone.git",
           outcomes: "Automated security scans; enabled zero-downtime releases."
         },
         {
           title: "Argo Rollouts (Blue-Green & Canary)",
           description: "Advanced Kubernetes deployment strategies with zero downtime updates.",
           tags: ["Kubernetes", "Argo Rollouts", "Blue-Green", "Canary"],
-          github: "https://github.com/Kundan547/argo-rollouts",
+          github: "https://github.com/Kundan547/argo-rollouts.git",
           outcomes: "Reduced downtime during application updates to near zero."
         },
         {
           title: "Node.js App (Argo + Kustomize + Helm)",
           description: "GitOps-driven deployments for Node.js app using Helm charts and Kustomize overlays.",
           tags: ["Node.js", "ArgoCD", "Kustomize", "Helm"],
-          github: "https://github.com/Kundan547/node-argo-helm",
+          github: "https://github.com/Kundan547/nodejs-k8s.git",
           outcomes: "Improved deployment automation and environment consistency."
         }
       ]
@@ -70,7 +70,7 @@ const Projects = () => {
           title: "AWS Lambda Function Deployment",
           description: "Provisioned AWS Lambda functions & APIs with Terraform.",
           tags: ["AWS Lambda", "API Gateway", "Terraform"],
-          github: "https://github.com/Kundan547/lambda-terraform",
+          github: "https://github.com/Kundan547/project3.git",
           outcomes: "Automated deployment of serverless functions and API endpoints."
         }
       ]
@@ -82,28 +82,28 @@ const Projects = () => {
           title: "Sports-Commerce App (Amplify + EKS)",
           description: "Three-tier Sports-Commerce app with Amplify frontend and EKS backend.",
           tags: ["React.js", "Node.js", "MongoDB", "Amplify", "EKS", "Terraform"],
-          github: "https://github.com/Kundan547/sports-commerce",
+          github: "https://github.com/Kundan547/Amplify.git",
           outcomes: "Integrated GitHub CI/CD, custom domain mapping, and environment-specific configs."
         },
         {
           title: "Django Blog Application",
           description: "Secure Django blog deployed with Docker and AWS (EC2/S3/RDS).",
           tags: ["Django", "Python", "Docker", "AWS", "CI/CD"],
-          github: "https://github.com/Kundan547/django-blog",
+          github: "https://github.com/Kundan547/Django-blog-project.git",
           outcomes: "Implemented role-based access, automated builds, and AWS hosting."
         },
         {
-          title: "MERN App on Kubernetes",
+          title: "MERN App on Ansible & Kubernetes",
           description: "Deployed containerized MERN app with separate frontend & backend builds.",
-          tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Kubernetes"],
-          github: "https://github.com/Kundan547/mern-k8s",
+          tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Kubernetes" , "Ansible"],
+          github: "https://github.com/Kundan547/Mern-Application.git",
           outcomes: "Enabled modular builds and independent scaling."
         },
         {
           title: "ECS Application Deployment (Fargate)",
           description: "Deployed Node.js app with MySQL on AWS ECS (Fargate) using ECR & ALB.",
           tags: ["ECS", "Fargate", "Node.js", "MySQL", "Docker", "ALB"],
-          github: "https://github.com/Kundan547/ecs-app",
+          github: "https://github.com/Kundan547/ecs-terraform-fargate.git",
           outcomes: "Implemented auto-scaling and load balancing for production workloads."
         }
       ]
