@@ -9,32 +9,22 @@ const ResumeContainer = styled(Container)`
   text-align: center;
 `;
 
-const ResumeWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ResumeImage = styled.img`
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: calc(100vh - 200px); /* Keeps it A4 size */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border: 1px solid #ddd;
+const ResumeFrame = styled.iframe`
+  width: 100%;
+  height: 100vh;
+  border: none;
 `;
 
 const Resume = () => {
-  const resumePdfPath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`;
-  const resumeImagePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.png`; 
-  // Make sure PNG version of resume exists in /public
+  // Hide PDF viewer toolbar, sidebar, and scrollbars
+  const resumePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0`;
 
   return (
     <ResumeContainer fluid>
       <Row className="mb-3">
         <Col>
           <Button
-            href={resumePdfPath}
+            href={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`}
             download="KundanVyas_Resume.pdf"
             variant="primary"
             size="lg"
@@ -44,9 +34,11 @@ const Resume = () => {
         </Col>
       </Row>
 
-      <ResumeWrapper>
-        <ResumeImage src={resumeImagePath} alt="Kundan Vyas Resume" />
-      </ResumeWrapper>
+      <Row>
+        <Col>
+          <ResumeFrame src={resumePath} title="Kundan Vyas Resume" />
+        </Col>
+      </Row>
     </ResumeContainer>
   );
 };
