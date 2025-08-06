@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaDownload } from 'react-icons/fa';
 import styled from 'styled-components';
-import resumePDF from '../assets/KundanVyas_Resume.pdf';  // Fixed path & name
 
 const ResumeContainer = styled(Container)`
   min-height: 100vh;
@@ -25,6 +24,8 @@ const PDFFrame = styled.iframe`
 `;
 
 const Resume = () => {
+  const resumePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`;
+
   return (
     <ResumeContainer className="section">
       <Row className="mb-4">
@@ -36,7 +37,7 @@ const Resume = () => {
       <Row className="mb-4">
         <Col lg={8} className="mx-auto text-center">
           <Button 
-            href={resumePDF}
+            href={resumePath}
             download="KundanVyas_Resume.pdf"
             variant="primary" 
             size="lg" 
@@ -50,7 +51,7 @@ const Resume = () => {
       <Row>
         <Col lg={9} className="mx-auto">
           <PDFFrame
-            src={resumePDF}
+            src={resumePath}
             title="Kundan Vyas Resume"
           />
         </Col>
