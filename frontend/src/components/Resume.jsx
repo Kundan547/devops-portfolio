@@ -37,7 +37,7 @@ const Resume = () => {
       </Row>
 
       <ResumeWrapper>
-        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+        <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}>
           <Viewer fileUrl={resumePdfPath} />
         </Worker>
       </ResumeWrapper>
