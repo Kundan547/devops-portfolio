@@ -9,21 +9,22 @@ const ResumeContainer = styled(Container)`
   text-align: center;
 `;
 
-const ResumeFrame = styled.embed`
+const ResumeFrame = styled.iframe`
   width: 100%;
   height: 100vh;
   border: none;
 `;
 
 const Resume = () => {
-  const resumePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`;
+  // Hide toolbar, sidebar, and scrollbars from PDF viewer
+  const resumePath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0`;
 
   return (
     <ResumeContainer fluid>
       <Row className="mb-3">
         <Col>
           <Button
-            href={resumePath}
+            href={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`}
             download="KundanVyas_Resume.pdf"
             variant="primary"
             size="lg"
@@ -35,7 +36,7 @@ const Resume = () => {
 
       <Row>
         <Col>
-          <ResumeFrame src={resumePath} type="application/pdf" />
+          <ResumeFrame src={resumePath} title="Kundan Vyas Resume" />
         </Col>
       </Row>
     </ResumeContainer>
