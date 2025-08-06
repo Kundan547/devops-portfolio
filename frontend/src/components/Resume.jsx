@@ -1,16 +1,12 @@
 import React from 'react';
-import { Viewer, Worker } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { FaDownload } from 'react-icons/fa';
 import styled from 'styled-components';
+import { Button, Container, Row, Col } from 'react-bootstrap';
+import { FaDownload } from 'react-icons/fa';
 
 const ResumeContainer = styled(Container)`
   min-height: 100vh;
   padding: 2rem 0;
   text-align: center;
-  background: white;
 `;
 
 const ResumeWrapper = styled.div`
@@ -18,15 +14,22 @@ const ResumeWrapper = styled.div`
   justify-content: center;
 `;
 
+const ResumeFrame = styled.iframe`
+  width: 80%;
+  height: 90vh;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+`;
+
 const Resume = () => {
-  const resumePdfPath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`;
+  const resumePdfPath = `${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0`;
 
   return (
     <ResumeContainer fluid>
       <Row className="mb-3">
         <Col>
           <Button
-            href={resumePdfPath}
+            href={`${process.env.PUBLIC_URL}/KundanVyas_Resume.pdf`}
             download="KundanVyas_Resume.pdf"
             variant="primary"
             size="lg"
@@ -37,9 +40,7 @@ const Resume = () => {
       </Row>
 
       <ResumeWrapper>
-        <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js`}>
-          <Viewer fileUrl={resumePdfPath} />
-        </Worker>
+        <ResumeFrame src={resumePdfPath} title="Kundan Vyas Resume" />
       </ResumeWrapper>
     </ResumeContainer>
   );
