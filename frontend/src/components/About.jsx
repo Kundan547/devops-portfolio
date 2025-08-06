@@ -15,17 +15,17 @@ const About = () => {
             <Card.Body className="p-5" style={{ textAlign: 'justify' }}>
               
               <p className="lead">
-                I am <strong>Kundan Vyas</strong>, a <strong>DevOps Engineer</strong> and 
-                <strong> AWS Trainer</strong> with over <strong>3 years of AWS experience</strong> 
-                and <strong>2 years in DevOps</strong>. My expertise spans <strong>cloud architecture, 
-                container orchestration, Infrastructure as Code, and CI/CD automation</strong>.
+                I am <strong>Kundan Vyas</strong>, a <strong>DevOps Engineer</strong> currently working at 
+                <strong> 47Billion, Indore</strong>, and an <strong>AWS Trainer</strong> with over 
+                <strong> 1.5 years of AWS experience</strong> and <strong>2 years in DevOps</strong>.  
+                My expertise spans <strong>cloud architecture, container orchestration, Infrastructure as Code, and CI/CD automation</strong>.
               </p>
 
               <h4 className="mt-4">🚀 Professional Journey</h4>
               <p>
-                I have worked on designing and delivering <strong>secure, scalable, production-grade 
-                infrastructure</strong> using <strong>AWS</strong>, <strong>Kubernetes</strong>, 
-                and <strong>Terraform</strong>.  
+                At <strong>47Billion</strong>, I work on designing and delivering 
+                <strong> secure, scalable, production-grade infrastructure</strong> using 
+                <strong> AWS</strong>, <strong>Kubernetes</strong>, and <strong>Terraform</strong>.  
                 My professional experience includes:
               </p>
               <ul>
