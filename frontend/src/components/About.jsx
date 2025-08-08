@@ -32,7 +32,7 @@ const About = () => {
                 My expertise spans <strong>cloud architecture, container orchestration, Infrastructure as Code, and CI/CD automation</strong>.
               </p>
 
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#0d6efd' }}>Professional Journey</h4>
+              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#050e1bff' }}>Professional Journey</h4>
               <p>
                 At <strong>47Billion</strong>, I design and deliver 
                 <strong> secure, scalable, production-grade infrastructure</strong> using 
@@ -48,7 +48,7 @@ const About = () => {
                 <li>Configuring <strong>Aurora PostgreSQL</strong>, <strong>ACM</strong>, and <strong>Route 53</strong></li>
               </ul>
 
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#0d6efd' }}>Skills & Focus</h4>
+              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#050e1bff' }}>Skills & Focus</h4>
               <ul style={{ paddingLeft: '1.2rem' }}>
                 <li><strong>Infrastructure as Code:</strong> Terraform, AWS CloudFormation</li>
                 <li><strong>Containers & Orchestration:</strong> Docker, Kubernetes (EKS, K3s), Helm, ArgoCD</li>
@@ -58,7 +58,7 @@ const About = () => {
                 <li><strong>Security & Governance:</strong> IAM, Secret Management, ABAC policies</li>
               </ul>
 
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#0d6efd' }}>Teaching & Knowledge Sharing</h4>
+              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#050e1bff' }}>Teaching & Knowledge Sharing</h4>
               <p>
                 As an <strong>AWS Trainer</strong>, I conduct live sessions on 
                 <strong> AWS fundamentals, Kubernetes, and EKS deployments</strong>, guiding teams 
