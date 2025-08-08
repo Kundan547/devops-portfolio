@@ -30,7 +30,7 @@ const CustomToggle = styled(Navbar.Toggle)`
   }
 `;
 
-const Header = () => {
+function Header() {
   const { isDarkMode } = useContext(ThemeContext);
   const [expanded, setExpanded] = useState(false);
   const navbarRef = useRef(null);
@@ -42,11 +42,11 @@ const Header = () => {
         e.preventDefault();
         const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
-        
+
         if (targetElement) {
           const navbarHeight = document.querySelector('.navbar').offsetHeight;
           const targetPosition = targetElement.offsetTop - navbarHeight - 20;
-          
+
           window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
@@ -55,31 +55,31 @@ const Header = () => {
       }
       // Don't close navbar immediately, let the outside click handler do it
     };
-    
+
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       link.addEventListener('click', handleNavClick);
     });
-    
+
     return () => {
       navLinks.forEach(link => {
         link.removeEventListener('click', handleNavClick);
       });
     };
   }, []);
-  
+
   // Add active class to nav links based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('section[id]');
       const scrollPosition = window.pageYOffset + 100; // Offset for better detection
-      
+
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
         const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-        
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           navLink?.classList.add('active');
         } else {
@@ -87,15 +87,15 @@ const Header = () => {
         }
       });
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector('.navbar');
@@ -107,29 +107,29 @@ const Header = () => {
         }
       }
     };
-    
+
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target) && expanded) {
         setExpanded(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [expanded]);
-  
+
   return (
-    <Navbar 
+    <Navbar
       as="nav"
-      bg={isDarkMode ? "dark" : "light"} 
-      variant={isDarkMode ? "dark" : "light"} 
-      expand="lg" 
-      sticky="top" 
+      bg={isDarkMode ? "dark" : "light"}
+      variant={isDarkMode ? "dark" : "light"}
+      expand="lg"
+      sticky="top"
       className="navbar-dark"
       expanded={expanded}
       ref={navbarRef}
@@ -144,11 +144,10 @@ const Header = () => {
           <ThemeToggleWrapper className="d-flex d-lg-none me-2">
             <ThemeToggle />
           </ThemeToggleWrapper>
-          <CustomToggle 
-            aria-controls="basic-navbar-nav" 
+          <CustomToggle
+            aria-controls="basic-navbar-nav"
             onClick={() => setExpanded(!expanded)}
-            aria-label="Toggle navigation"
-          />
+            aria-label="Toggle navigation" />
         </div>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto" as="ul">
@@ -168,6 +167,6 @@ const Header = () => {
       </Container>
     </Navbar>
   );
-};
+}
 
 export default Header;
