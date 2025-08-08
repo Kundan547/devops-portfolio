@@ -65,7 +65,7 @@ const About = () => {
                 towards <strong>best practices in DevOps and Cloud Engineering</strong>.
               </p>
 
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#0d6efd' }}>Let’s Connect</h4>
+              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#050e1bff' }}>Let’s Connect</h4>
               <p>
                 I am open to <strong>full-time DevOps & Cloud Engineering roles</strong> where I can 
                 build secure, scalable, and automated cloud platforms.  
