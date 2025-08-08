@@ -15,51 +15,47 @@ const About = () => {
             <Card.Body className="p-5" style={{ textAlign: 'justify' }}>
               
               <p className="lead">
-                I am <strong>Kundan Vyas</strong>, a <strong>DevOps Engineer</strong> currently working at 
+                I am <strong>Kundan Vyas</strong>, a <strong>DevOps Engineer</strong> at 
                 <strong> 47Billion, Indore</strong>, and an <strong>AWS Trainer</strong> with over 
                 <strong> 1.5 years of AWS experience</strong> and <strong>2 years in DevOps</strong>.  
-                My expertise spans <strong>cloud architecture, container orchestration, Infrastructure as Code, and CI/CD automation</strong>.
+                My expertise includes cloud architecture, container orchestration, Infrastructure as Code, and CI/CD automation.
               </p>
 
-              <h4 className="mt-4">🚀 Professional Journey</h4>
+              <h4 className="mt-4">Professional Experience</h4>
               <p>
-                At <strong>47Billion</strong>, I work on designing and delivering 
-                <strong> secure, scalable, production-grade infrastructure</strong> using 
-                <strong> AWS</strong>, <strong>Kubernetes</strong>, and <strong>Terraform</strong>.  
-                My professional experience includes:
+                At <strong>47Billion</strong>, I design and deliver secure, scalable, production-grade infrastructure 
+                using AWS, Kubernetes, and Terraform. My experience includes:
               </p>
               <ul>
-                <li>Building <strong>modular Terraform architectures</strong> for multi-environment setups (Dev, Staging, Prod)</li>
-                <li>Deploying workloads on <strong>EKS</strong> and <strong>ECS (Fargate)</strong> with secure networking (VPC, NAT, ALB, SGs)</li>
-                <li>Integrating <strong>ArgoCD GitOps pipelines</strong> for application delivery</li>
-                <li>Managing <strong>secure IAM roles & OIDC-based GitHub Actions</strong> for CI/CD</li>
-                <li>Implementing <strong>Backstage Developer Portals</strong> for self-service infrastructure</li>
-                <li>Configuring <strong>Aurora PostgreSQL</strong>, <strong>ACM</strong>, and <strong>Route 53</strong> for production applications</li>
+                <li>Developing modular Terraform architectures for multi-environment setups (Dev, Staging, Production)</li>
+                <li>Deploying workloads on EKS and ECS (Fargate) with secure networking configurations (VPC, NAT, ALB, security groups)</li>
+                <li>Implementing ArgoCD GitOps pipelines for application delivery</li>
+                <li>Managing secure IAM roles and OIDC-based GitHub Actions integrations for CI/CD</li>
+                <li>Implementing Backstage Developer Portals for self-service infrastructure</li>
+                <li>Configuring Aurora PostgreSQL, ACM, and Route 53 for production applications</li>
               </ul>
 
-              <h4 className="mt-4">⚙️ Skills & Focus</h4>
+              <h4 className="mt-4">Skills</h4>
               <ul>
-                <li><strong>Infrastructure as Code:</strong> Terraform (modules, workspaces, variables/outputs), AWS CloudFormation</li>
+                <li><strong>Infrastructure as Code:</strong> Terraform, AWS CloudFormation</li>
                 <li><strong>Containers & Orchestration:</strong> Docker, Kubernetes (EKS, K3s), Helm, ArgoCD</li>
                 <li><strong>CI/CD Automation:</strong> Jenkins, GitHub Actions, Argo Workflows</li>
                 <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, ECS, EKS, Aurora, ALB, ACM, Route 53)</li>
                 <li><strong>Monitoring & Logging:</strong> Prometheus, Grafana</li>
-                <li><strong>Security & Governance:</strong> IAM, Secret Management, ABAC policies for S3 Access Points</li>
+                <li><strong>Security:</strong> IAM, Secret Management, ABAC policies for S3 Access Points</li>
               </ul>
 
-              <h4 className="mt-4">📢 Teaching & Knowledge Sharing</h4>
+              <h4 className="mt-4">Training & Mentorship</h4>
               <p>
-                As an <strong>AWS Trainer</strong>, I have conducted live sessions on 
-                <strong> AWS fundamentals, Kubernetes, and EKS deployments</strong>, helping learners 
-                and teams adopt <strong>best practices in DevOps and Cloud Engineering</strong>.
+                As an AWS Trainer, I have conducted sessions on AWS fundamentals, Kubernetes, and EKS deployments, 
+                guiding individuals and teams in adopting best practices in DevOps and Cloud Engineering.
               </p>
 
-              <h4 className="mt-4">🤝 Let’s Connect</h4>
+              <h4 className="mt-4">Contact</h4>
               <p>
-                I am open to <strong>full-time DevOps & Cloud Engineering roles</strong> where I can 
-                contribute to building secure, scalable, and automated cloud platforms.  
-                Reach me at <a href="mailto:kundanvyas197@gmail.com">kundanvyas197@gmail.com</a> or 
-                connect with me on <a href="https://linkedin.com/in/kundan-vyas" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+                I am seeking full-time DevOps and Cloud Engineering opportunities.  
+                Email: <a href="mailto:kundanvyas197@gmail.com">kundanvyas197@gmail.com</a>  
+                LinkedIn: <a href="https://linkedin.com/in/kundan-vyas" target="_blank" rel="noopener noreferrer">linkedin.com/in/kundan-vyas</a>
               </p>
 
             </Card.Body>
