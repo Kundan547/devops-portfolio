@@ -1,172 +1,84 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import ThemeToggle from './ThemeToggle';
-import { ThemeContext } from '../context/ThemeContext';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { NAV, PROFILE } from '../data';
 
-const ThemeToggleWrapper = styled.div`
-  margin-left: 15px;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: rotate(10deg);
-  }
-`;
+const Header = () => {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('');
+  const [scrolled, setScrolled] = useState(false);
 
-const NavbarBrandWrapper = styled.div`
-  max-width: 60%;
-  @media (max-width: 576px) {
-    max-width: 50%;
-  }
-`;
-
-const CustomToggle = styled(Navbar.Toggle)`
-  border-color: var(--accent-color) !important;
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23C9A0DC' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-  }
-`;
-
-function Header() {
-  const { isDarkMode } = useContext(ThemeContext);
-  const [expanded, setExpanded] = useState(false);
-  const navbarRef = useRef(null);
   useEffect(() => {
-    // Handle navigation clicks with proper scrolling
-    const handleNavClick = (e) => {
-      const href = e.target.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-          const navbarHeight = document.querySelector('.navbar').offsetHeight;
-          const targetPosition = targetElement.offsetTop - navbarHeight - 20;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      // The last section is shorter than the viewport, so pin it active at page bottom.
+      if (window.scrollY < 120) setActive('');
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        setActive(NAV[NAV.length - 1].id);
       }
-      // Don't close navbar immediately, let the outside click handler do it
     };
-
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', handleNavClick);
-    });
-
-    return () => {
-      navLinks.forEach(link => {
-        link.removeEventListener('click', handleNavClick);
-      });
-    };
-  }, []);
-
-  // Add active class to nav links based on scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.pageYOffset + 100; // Offset for better detection
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          navLink?.classList.add('active');
-        } else {
-          navLink?.classList.remove('active');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const navbar = document.querySelector('.navbar');
-      if (navbar) {
-        if (window.scrollY > 50) {
-          navbar.classList.add('navbar-glass');
-        } else {
-          navbar.classList.remove('navbar-glass');
-        }
-      }
-    };
+    const els = NAV.map(n => document.getElementById(n.id)).filter(Boolean);
+    if (!('IntersectionObserver' in window)) return undefined;
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: '-45% 0px -50% 0px' }
+    );
+    els.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
-    const handleClickOutside = (event) => {
-      if (navbarRef.current && !navbarRef.current.contains(event.target) && expanded) {
-        setExpanded(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [expanded]);
+  useEffect(() => {
+    const onKey = e => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
-    <Navbar
-      as="nav"
-      bg={isDarkMode ? "dark" : "light"}
-      variant={isDarkMode ? "dark" : "light"}
-      expand="lg"
-      sticky="top"
-      className="navbar-dark"
-      expanded={expanded}
-      ref={navbarRef}
-      role="navigation"
-      aria-label="Main navigation"
-    >
-      <Container className="d-flex justify-content-between">
-        <NavbarBrandWrapper>
-          <Navbar.Brand href="#home" className="gradient-text">DevOps Portfolio</Navbar.Brand>
-        </NavbarBrandWrapper>
-        <div className="d-flex align-items-center">
-          <ThemeToggleWrapper className="d-flex d-lg-none me-2">
-            <ThemeToggle />
-          </ThemeToggleWrapper>
-          <CustomToggle
-            aria-controls="basic-navbar-nav"
-            onClick={() => setExpanded(!expanded)}
-            aria-label="Toggle navigation" />
-        </div>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto" as="ul">
-            <Nav.Item as="li"><Nav.Link href="#home">Home</Nav.Link></Nav.Item>
-            <Nav.Item as="li"><Nav.Link href="#about">About</Nav.Link></Nav.Item>
-            <Nav.Item as="li"><Nav.Link href="#skills">Skills</Nav.Link></Nav.Item>
-            <Nav.Item as="li"><Nav.Link href="#projects">Projects</Nav.Link></Nav.Item>
-            <Nav.Item as="li"><Nav.Link href="#resume">Resume</Nav.Link></Nav.Item>
-            <Nav.Item as="li"><Nav.Link href="#contact">Contact</Nav.Link></Nav.Item>
-            <Nav.Item as="li">
-              <ThemeToggleWrapper className="d-none d-lg-flex">
-                <ThemeToggle />
-              </ThemeToggleWrapper>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
+      <div className="container header__inner">
+        <a className="brand" href="#top" onClick={() => setOpen(false)}>
+          <span className="brand__mark" aria-hidden="true">KV</span>
+          <span className="brand__name">{PROFILE.name}</span>
+        </a>
+
+        <nav id="site-nav" className={`nav${open ? ' nav--open' : ''}`} aria-label="Primary">
+          <ul>
+            {NAV.map(n => (
+              <li key={n.id}>
+                <a
+                  href={`#${n.id}`}
+                  className={active === n.id ? 'is-active' : ''}
+                  aria-current={active === n.id ? 'true' : undefined}
+                  onClick={() => setOpen(false)}
+                >
+                  {n.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a className="btn btn--primary btn--sm nav__cta" href={PROFILE.resume} download="KundanVyas_Resume.pdf">
+            Resume
+          </a>
+        </nav>
+
+        <button
+          type="button"
+          className="menu-btn"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="site-nav"
+          onClick={() => setOpen(o => !o)}
+        >
+          {open ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
+        </button>
+      </div>
+    </header>
   );
-}
+};
 
 export default Header;

@@ -1,84 +1,56 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { FaMotorcycle, FaRoute, FaMountain, FaCompass } from 'react-icons/fa';
+import { SectionHead } from './Section';
 
-const About = () => {
-  return (
-    <Container className="section py-5" style={{ background: 'linear-gradient(to bottom right, #f8f9fa, #ffffff)' }}>
-      <Row>
-        <Col lg={8} className="mx-auto text-center">
-          <h2 
-            className="section-title mb-4" 
-            style={{ fontSize: '2.8rem', fontWeight: '700', color: '#1a1a1a' }}
-          >
-            About Me
-          </h2>
-        </Col>
-      </Row>
+const POINTS = [
+  { title: 'Owns production end-to-end', text: 'Cluster provisioning, CI/CD design, incident response and compliance — handled independently, including under pressure.' },
+  { title: 'GitOps by default', text: 'Every deploy, access rule and infrastructure change goes through a pull request, so it is reviewable and auditable.' },
+  { title: 'Automation that scales the team', text: 'Claude-powered agents and MCP servers generate IaC and run scoped, least-privilege operational checks.' },
+];
 
-      <Row>
-        <Col lg={8} className="mx-auto">
-          <Card 
-            className="border-0 shadow-lg" 
-            style={{ borderRadius: '18px', transition: 'transform 0.3s ease' }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-          >
-            <Card.Body className="p-5" style={{ textAlign: 'justify', fontSize: '1.15rem', lineHeight: '1.8' }}>
-              
-              <p className="lead" style={{ fontSize: '1.3rem' }}>
-                I am <strong>Kundan Vyas</strong>, a <strong>DevOps Engineer</strong> at 
-                <strong> 47Billion, Indore</strong>, and an <strong>AWS Trainer</strong> with 
-                <strong> 1.5+ years in AWS</strong> and <strong>2 years in DevOps</strong>.  
-                My expertise spans <strong>cloud architecture, container orchestration, Infrastructure as Code, and CI/CD automation</strong>.
-              </p>
+const INTERESTS = [
+  { icon: FaMotorcycle, label: 'Bike riding' },
+  { icon: FaRoute, label: 'Long trips' },
+  { icon: FaMountain, label: 'Mountain lover' },
+  { icon: FaCompass, label: 'Adventure sports' },
+];
 
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#13181fff' }}>Professional Journey</h4>
-              <p>
-                At <strong>47Billion</strong>, I design and deliver 
-                <strong> secure, scalable, production-grade infrastructure</strong> using 
-                <strong> AWS</strong>, <strong>Kubernetes</strong>, and <strong>Terraform</strong>.  
-                My professional experience includes:
-              </p>
-              <ul style={{ paddingLeft: '1.2rem' }}>
-                <li>Building <strong>modular Terraform architectures</strong> for multi-environment setups</li>
-                <li>Deploying workloads on <strong>EKS</strong> and <strong>ECS (Fargate)</strong></li>
-                <li>Integrating <strong>ArgoCD GitOps pipelines</strong> for app delivery</li>
-                <li>Managing <strong>secure IAM roles & GitHub Actions OIDC</strong></li>
-                <li>Implementing <strong>Backstage Developer Portals</strong></li>
-                <li>Configuring <strong>Aurora PostgreSQL</strong>, <strong>ACM</strong>, and <strong>Route 53</strong></li>
-              </ul>
+const About = () => (
+  <section id="about" className="section" aria-labelledby="about-title">
+    <div className="container">
+      <SectionHead id="about-title" eyebrow="About" title="DevOps engineer focused on reliable, auditable delivery" />
+      <div className="about">
+        <p className="about__lead">
+          I specialize in Kubernetes architecture, GitOps delivery pipelines and Infrastructure-as-Code across AWS and Azure.
+          At 47Billion I started as an intern and was promoted to DevOps Engineer, where I now own the platform that
+          ships production releases for multiple environments.
+        </p>
+        <ul className="about__points">
+          {POINTS.map(p => (
+            <li key={p.title}>
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#13181fff' }}>Skills & Focus</h4>
-              <ul style={{ paddingLeft: '1.2rem' }}>
-                <li><strong>Infrastructure as Code:</strong> Terraform, AWS CloudFormation</li>
-                <li><strong>Containers & Orchestration:</strong> Docker, Kubernetes (EKS, K3s), Helm, ArgoCD</li>
-                <li><strong>CI/CD Automation:</strong> Jenkins, GitHub Actions, Argo Workflows</li>
-                <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, ECS, EKS, Aurora, ALB, ACM, Route 53)</li>
-                <li><strong>Monitoring & Logging:</strong> Prometheus, Grafana</li>
-                <li><strong>Security & Governance:</strong> IAM, Secret Management, ABAC policies</li>
-              </ul>
-
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#13181fff' }}>Teaching & Knowledge Sharing</h4>
-              <p>
-                As an <strong>AWS Trainer</strong>, I conduct live sessions on 
-                <strong> AWS fundamentals, Kubernetes, and EKS deployments</strong>, guiding teams 
-                towards <strong>best practices in DevOps and Cloud Engineering</strong>.
-              </p>
-
-              <h4 className="mt-4" style={{ fontWeight: '700', fontSize: '1.5rem', color: '#13181fff' }}>Let’s Connect</h4>
-              <p>
-                I am open to <strong>full-time DevOps & Cloud Engineering roles</strong> where I can 
-                build secure, scalable, and automated cloud platforms.  
-                📧 <a href="mailto:kundanvyas197@gmail.com">kundanvyas197@gmail.com</a> | 
-                🔗 <a href="https://linkedin.com/in/kundan-vyas" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              </p>
-
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
+      <div className="beyond">
+        <div>
+          <p className="beyond__label">Beyond the terminal</p>
+          <p className="beyond__text">
+            Away from the keyboard I am on a bike: long rides, mountain roads and adventure trips.
+            The same habits show up at work: plan the route, check the gear, stay calm when conditions change.
+          </p>
+        </div>
+        <ul className="beyond__tags" aria-label="Interests">
+          {INTERESTS.map(({ icon: Icon, label }) => (
+            <li key={label}><Icon aria-hidden="true" /> {label}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+);
 
 export default About;

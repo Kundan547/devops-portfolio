@@ -1,0 +1,9 @@
+import React from 'react';
+
+export const SectionHead = ({ id, eyebrow, title, intro }) => (
+  <header className="section__head">
+    <p className="eyebrow">{eyebrow}</p>
+    <h2 id={id} className="section__title">{title}</h2>
+    {intro && <p className="section__intro">{intro}</p>}
+  </header>
+);

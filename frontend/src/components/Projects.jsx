@@ -1,159 +1,50 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaArrowRight } from 'react-icons/fa';
+import { SectionHead } from './Section';
+import { PROJECTS, PROFILE, FEATURED } from '../data';
 
-const Projects = () => {
-  const categories = [
-    {
-      title: "AWS & Kubernetes Deployments",
-      projects: [
-        {
-          title: "SpringBoot BankApp on EKS (GitOps)",
-          description: "Containerized Spring Boot banking app deployed on AWS EKS using Helm & ArgoCD.",
-          tags: ["Spring Boot", "MySQL", "Docker", "EKS", "ArgoCD"],
-          github: "https://github.com/Kundan547/Springboot-BankApp.git",
-          outcomes: "Implemented GitOps-driven deployments ensuring automated rollouts and version control."
-        },
-        {
-          title: "Three-Tier App with Terraform & Helm",
-          description: "Full-stack app deployed on EKS with infrastructure provisioned via Terraform.",
-          tags: ["Node.js", "React.js", "MongoDB", "Terraform", "EKS", "Helm"],
-          github: "https://github.com/Kundan547/3-tier-app-Deployment.git",
-          outcomes: "Created modular Terraform infrastructure; enabled reusable Helm charts for deployments."
-        },
-        {
-          title: "SportsDev with Kustomize Overlays",
-          description: "Managed env-specific deployments to multiple EKS clusters using Kustomize overlays.",
-          tags: ["Kustomize", "EKS", "Overlays"],
-          github: "https://github.com/Kundan547/sports-dev.git",
-          outcomes: "Simplified multi-environment deployments and improved cluster management efficiency."
-        },
-        {
-          title: "E-Commerce App with ArgoCD",
-          description: "CI/CD pipeline deploying Node.js & React.js app to EKS via ArgoCD.",
-          tags: ["Node.js", "React.js", "EKS", "ArgoCD", "GitHub Actions"],
-          github: "https://github.com/Kundan547/spring-boot-k8s-2.git",
-          outcomes: "Implemented GitOps pipeline for consistent, automated production deployments."
-        }
-      ]
-    },
-    {
-      title: "CI/CD Pipelines & Security",
-      projects: [
-        {
-          title: "Zomato Clone (Jenkins CI/CD + Security)",
-          description: "Jenkins pipeline with SonarQube, Trivy & OWASP scanning for Node.js app.",
-          tags: ["Jenkins", "Docker", "SonarQube", "Trivy", "OWASP", "MySQL"],
-          github: "https://github.com/Kundan547/Zomato-Clone.git",
-          outcomes: "Automated security scans; enabled zero-downtime releases."
-        },
-        {
-          title: "Argo Rollouts (Blue-Green & Canary)",
-          description: "Advanced Kubernetes deployment strategies with zero downtime updates.",
-          tags: ["Kubernetes", "Argo Rollouts", "Blue-Green", "Canary"],
-          github: "https://github.com/Kundan547/argo-rollouts.git",
-          outcomes: "Reduced downtime during application updates to near zero."
-        },
-        {
-          title: "Node.js App (Argo + Kustomize + Helm)",
-          description: "GitOps-driven deployments for Node.js app using Helm charts and Kustomize overlays.",
-          tags: ["Node.js", "ArgoCD", "Kustomize", "Helm"],
-          github: "https://github.com/Kundan547/nodejs-k8s.git",
-          outcomes: "Improved deployment automation and environment consistency."
-        }
-      ]
-    },
-    {
-      title: "Serverless & Infrastructure as Code",
-      projects: [
-        {
-          title: "AWS Lambda Function Deployment",
-          description: "Provisioned AWS Lambda functions & APIs with Terraform.",
-          tags: ["AWS Lambda", "API Gateway", "Terraform"],
-          github: "https://github.com/Kundan547/project3.git",
-          outcomes: "Automated deployment of serverless functions and API endpoints."
-        }
-      ]
-    },
-    {
-      title: "Full-Stack Applications",
-      projects: [
-        {
-          title: "Sports-Commerce App (Amplify + EKS)",
-          description: "Three-tier Sports-Commerce app with Amplify frontend and EKS backend.",
-          tags: ["React.js", "Node.js", "MongoDB", "Amplify", "EKS", "Terraform"],
-          github: "https://github.com/Kundan547/Amplify.git",
-          outcomes: "Integrated GitHub CI/CD, custom domain mapping, and environment-specific configs."
-        },
-        {
-          title: "Django Blog Application",
-          description: "Secure Django blog deployed with Docker and AWS (EC2/S3/RDS).",
-          tags: ["Django", "Python", "Docker", "AWS", "CI/CD"],
-          github: "https://github.com/Kundan547/Django-blog-project.git",
-          outcomes: "Implemented role-based access, automated builds, and AWS hosting."
-        },
-        {
-          title: "MERN App on Ansible & Kubernetes",
-          description: "Deployed containerized MERN app with separate frontend & backend builds.",
-          tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Kubernetes" , "Ansible"],
-          github: "https://github.com/Kundan547/Mern-Application.git",
-          outcomes: "Enabled modular builds and independent scaling."
-        },
-        {
-          title: "ECS Application Deployment (Fargate)",
-          description: "Deployed Node.js app with MySQL on AWS ECS (Fargate) using ECR & ALB.",
-          tags: ["ECS", "Fargate", "Node.js", "MySQL", "Docker", "ALB"],
-          github: "https://github.com/Kundan547/ecs-terraform-fargate.git",
-          outcomes: "Implemented auto-scaling and load balancing for production workloads."
-        }
-      ]
-    }
-  ];
-
-  return (
-    <Container className="section">
-      <Row>
-        <Col lg={8} className="mx-auto text-center">
-          <h2 className="section-title">DevOps & Cloud-Native Projects</h2>
-          <p className="lead mb-5">
-            A showcase of my categorized DevOps projects demonstrating cloud-native deployments, CI/CD pipelines, serverless infrastructure, and full-stack solutions.
-          </p>
-        </Col>
-      </Row>
-      
-      {categories.map((category, catIndex) => (
-        <div key={catIndex} className="mb-5">
-          <h3 className="mb-4">{category.title}</h3>
-          <Row>
-            {category.projects.map((project, projIndex) => (
-              <Col key={projIndex} lg={6} className="mb-4">
-                <Card className="h-100 project-card border-0 shadow-sm">
-                  <Card.Body className="p-4">
-                    <h4>{project.title}</h4>
-                    <div className="mb-3">
-                      {project.tags.map((tag, tagIndex) => (
-                        <Badge key={tagIndex} bg="primary" className="me-2 mb-2">{tag}</Badge>
-                      ))}
-                    </div>
-                    <Card.Text>{project.description}</Card.Text>
-                    <h6 className="mt-3">Outcomes:</h6>
-                    <Card.Text>{project.outcomes}</Card.Text>
-                  </Card.Body>
-                  <Card.Footer className="bg-white border-0 p-4">
-                    <div className="d-flex justify-content-center">
-                      <Button variant="outline-dark" href={project.github} target="_blank" rel="noopener noreferrer">
-                        <FaGithub className="me-2" /> GitHub
-                      </Button>
-                    </div>
-                  </Card.Footer>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      ))}
-    </Container>
-  );
-};
+const Projects = () => (
+  <section id="projects" className="section section--tint" aria-labelledby="proj-title">
+    <div className="container">
+      <SectionHead
+        id="proj-title"
+        eyebrow="Projects"
+        title="Hands-on work"
+        intro="One production automation project from work, plus personal projects where I practise the same patterns. The personal ones link to their source."
+      />
+      <article className="featured">
+        <p className="featured__eyebrow">{FEATURED.eyebrow}</p>
+        <h3 className="featured__title">{FEATURED.title}</h3>
+        <p className="featured__text">{FEATURED.summary}</p>
+        <ul className="featured__points">
+          {FEATURED.points.map(pt => <li key={pt}>{pt}</li>)}
+        </ul>
+        <ul className="chips chips--sm" aria-label="Technologies">
+          {FEATURED.tags.map(t => <li key={t} className="chip">{t}</li>)}
+        </ul>
+      </article>
+      <ul className="cards">
+        {PROJECTS.map(p => (
+          <li key={p.title} className="card">
+            <h3 className="card__title">{p.title}</h3>
+            <p className="card__text">{p.summary}</p>
+            <ul className="chips chips--sm" aria-label="Technologies">
+              {p.tags.map(t => <li key={t} className="chip">{t}</li>)}
+            </ul>
+            <a className="card__link" href={p.href} target="_blank" rel="noopener noreferrer">
+              <FaGithub aria-hidden="true" /> View source
+              <span className="sr-only"> for {p.title} (opens in a new tab)</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p className="more">
+        <a href={PROFILE.github} target="_blank" rel="noopener noreferrer">
+          More on GitHub <FaArrowRight aria-hidden="true" />
+        </a>
+      </p>
+    </div>
+  </section>
+);
 
 export default Projects;
